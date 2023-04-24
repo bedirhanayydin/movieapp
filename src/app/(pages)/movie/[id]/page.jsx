@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Skeleton from "react-loading-skeleton";
 
 const getMovie = async (id) => {
   const res = await fetch(
@@ -20,16 +21,23 @@ const Page = async ({ params }) => {
         src={`https://image.tmdb.org/t/p/original/${
           movieDetail?.backdrop_path || movieDetail?.poster_path
         }`}
-        style={{ objectFit: "cover" }}
+        loading="lazy"
+        className="bg-cover text-white "
+        placeholder="blur"
+        blurDataURL="data:../assets/blur.jpg"
       />
       <div className="absolute">
-        <div className="text-4xl font-bold my-3">{movieDetail?.title}</div>
-        <div className="w-1/2">{movieDetail?.overview}</div>
-        <div className="my-3">
-          {movieDetail?.release_date} - Vote Average={" "}
-          {movieDetail?.vote_average}
+        <div className="text-4xl font-bold my-3">
+          {movieDetail?.title || <Skeleton />}
         </div>
-        <div className="border w-32 hover:bg-white hover:text-black my-2 p-2 rounded-md text-center text-lg cursor-pointer">
+        <div className="w-1/2 line-clamp-3">
+          {movieDetail?.overview || <Skeleton count={10} />}
+        </div>
+        <div className="my-3">
+          {movieDetail?.release_date || <Skeleton />} - Vote Average={" "}
+          {movieDetail?.vote_average || <Skeleton />}
+        </div>
+        <div className="border w-32 hover:bg-white hover:text-black my-2 p-2 rounded-md text-center text-lg cursor-pointer transition duration-500">
           Trail
         </div>
       </div>

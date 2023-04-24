@@ -28,7 +28,10 @@ const Header = () => {
 
   return (
     <div className="flex items-center gap-7 h-20 p-5">
-      <div className="bg-amber-300 rounded-lg p-3 text-2xl font-bold">
+      <div
+        className="bg-amber-300 rounded-lg p-3 text-2xl font-bold cursor-pointer"
+        onClick={() => router.push("?genre=popular")}
+      >
         MovieApp
       </div>
       <div className="flex flex-1 items-center gap-2 border p-3 rounded-lg">
