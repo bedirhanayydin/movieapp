@@ -6,12 +6,13 @@ const Page = async ({ params }) => {
   const res = await fetch(
     `${process.env.BASE_API_URL}/3/search/movie?api_key=${process.env.API_KEY}&query=${keyword}&language=en-US$include_adult=false`
   );
-
+  console.log(keyword);
   const data = await res.json();
+  console.log(data);
   return (
     <div>
-      {!data?.results == [] ? (
-        <div className="flex justify-center text-2xl font-bold">
+      {data?.total_results === 0 ? (
+        <div className="flex justify-center text-white font-bold text-2xl">
           Movie not found
         </div>
       ) : (
