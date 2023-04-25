@@ -10,7 +10,6 @@ const Page = async ({ searchParams }) => {
   );
 
   const data = await res.json();
-
   return data?.results ? (
     <div className="flex justify-center items-center flex-wrap p-14 gap-3">
       {data?.results?.map((dt, i) => (
@@ -18,7 +17,7 @@ const Page = async ({ searchParams }) => {
       ))}
     </div>
   ) : (
-    <div className="text-white text-xl flex justify-center">
+    <div className="flex justify-center text-2xl font-bold">
       Not Found {searchParams.genre.toUpperCase()}
     </div>
   );

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
+
 const Movies = ({ dt }) => {
   const router = useRouter();
 
@@ -15,9 +16,9 @@ const Movies = ({ dt }) => {
           dt?.backdrop_path || dt?.poster_path
         }`}
         alt="Loading..."
-        style={{ objectFit: "cover" }}
         width={470}
         height={300}
+        className="object-cover"
       />
 
       <div className="absolute bottom-0 p-3 w-full h-full flex flex-col justify-end opacity-0 hover:opacity-90 transition-opacity">

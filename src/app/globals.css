@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .imgCard {
+    @apply p-4 rounded-xl object-cover  transition duration-300 ease-in-out hover:scale-110 cursor-pointer hover:opacity-40;
+  }
+}
 .imgContainer {
   flex: 1 1 auto;
 }

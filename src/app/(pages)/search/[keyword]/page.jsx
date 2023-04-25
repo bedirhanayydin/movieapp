@@ -10,8 +10,10 @@ const Page = async ({ params }) => {
   const data = await res.json();
   return (
     <div>
-      {!data?.results ? (
-        <div>Movie not found</div>
+      {!data?.results == [] ? (
+        <div className="flex justify-center text-2xl font-bold">
+          Movie not found
+        </div>
       ) : (
         <div className="flex items-center flex-wrap gap-2">
           {data?.results?.map((dt, i) => (

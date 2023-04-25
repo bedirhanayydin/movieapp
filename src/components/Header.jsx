@@ -9,14 +9,14 @@ const Header = () => {
   const [keyword, setKeyword] = useState("");
   const router = useRouter();
   const menu = [
-    {
-      name: "About",
-      url: "/about",
-    },
-    {
-      name: "Sign In",
-      url: "/login",
-    },
+    // {
+    //   name: "Travel",
+    //   url: "/travel",
+    // },
+    // {
+    //   name: "Sign In",
+    //   url: "/login",
+    // },
   ];
 
   const searchFunc = (e) => {
